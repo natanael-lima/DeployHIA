@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mongodb:
-    image: mongo
+    image: mongo:4.4
     container_name: mongodb-container
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
@@ -29,7 +29,7 @@ services:
     image: backend-image
     container_name: backend-container
     environment:
-      - MONGODB_URI=mongodb://root:root@mongodb:27017/proyectofinalbd?authSource=admin
+      - MONGODB_URI=mongodb://root:root@mongodb-container:27017/proyectofinalbd?authSource=admin
     ports:
       - "3000:3000"
     networks:
