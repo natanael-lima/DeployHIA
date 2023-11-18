@@ -5,7 +5,7 @@ const autCtrl = require('./../controllers/auth.controller');
 const express = require('express');
 const router = express.Router();
 //definimos las rutas para la gestion de agente
-router.post('/',autCtrl.verifyToken, dependenciaCtrl.createDependencia);
+router.post('/', dependenciaCtrl.createDependencia);
 router.get('/',autCtrl.verifyToken,dependenciaCtrl.getDependencias);
 //exportamos el modulo de rutas
 module.exports = router;

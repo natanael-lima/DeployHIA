@@ -14,9 +14,11 @@ const bodyparser = require('body-parser');
 app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
+
 //middlewares
 app.use(express.json());
-app.use(cors({origin: 'http://localhost:4200'}));
+app.use(cors({ origin: 'http://localhost' }));
+
 //Cargamos el modulo de direccionamiento de rutas
 app.use('/api/empleado', require('./routes/empleado.route.js'));
 app.use('/api/usuario', require('./routes/usuario.route'));
@@ -29,11 +31,12 @@ app.use('/api/notificacion',require('./routes/notificacion.route'));
 
 //setting
 app.set('port', process.env.PORT || 3000);
+
 //starting the server
 app.listen(app.get('port'), () => {
 console.log(`Server started on port`, app.get('port'));
 
-//cargando archivos necsarios
+//cargando archivos necesarios
 
 //cargar dependencias
 var query = Dependencia.find();
@@ -75,6 +78,7 @@ query2.exec(function (err,oficinas){
         oficina3.save();
     }
 });
+
 var query5=Recurso.find();
 query5.exec(function(err,recursos){
     if(!recursos.length){

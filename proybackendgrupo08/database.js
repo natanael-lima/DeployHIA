@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const URI = 'mongodb://localhost/proyectodbfinal';
+const URI = 'mongodb://root:root@mongodb:27017/proyectofinalbd?authSource=admin';
 mongoose.connect(URI)
 .then(db=>console.log('DB is connected'))
 .catch(err=>console.error(err))
