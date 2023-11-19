@@ -24,9 +24,7 @@ services:
       - tpfinalhia
 
   backend:
-    build:
-      context: ./proybackendgrupo08
-    image: backend-image
+    image: backend
     container_name: backend-container
     environment:
       - MONGODB_URI=mongodb://root:root@mongodb-container:27017/proyectofinalbd?authSource=admin
@@ -36,9 +34,7 @@ services:
       - tpfinalhia
 
   frontend:
-    build:
-      context: ./proyfrontendgrupo08
-    image: frontend-image
+    image: frontend
     container_name: frontend-container
     ports:
       - "80:80"
